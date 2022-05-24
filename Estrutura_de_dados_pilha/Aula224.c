@@ -1,11 +1,14 @@
-//Curso de Programação C | Operação push. Como empilhar um dado na estrutura de dados pilha | aula 224
-
-#include <stdio.h>
-#include <stdlib.h>
+/*Curso de Programação C | Operação push. Como empilhar um dado na estrutura de dados pilha | aula 224
+                       |  Operação POP.  Como desempilhar um dado na estrutura da dados pilha | aula 225
+                       |  Imprimindo e testando a estrutura de dados dinâmica da pilha | aula 226
+*/                       
 
 /*
         Estruturas de dados dinâmicos
 */
+
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct{
     int dia,mes,ano;
@@ -47,7 +50,7 @@ No* empilhar (No*topo) {
         printf("\nErro ao alocar a memoria\n");
     return NULL;
 }
-//Função para a operação POP (desempilhar)
+//Função para a operação de POP (desempilhar)
 No* desempilhar(No **topo) {
     if (*topo != NULL) {
          No *remover = *topo;
@@ -59,6 +62,15 @@ No* desempilhar(No **topo) {
    return NULL;
 }        
 
+//Imprimir pilha
+void imprimir_pilha(No *topo) {
+     printf("\n---------- PILHA ----------\n");
+     while(topo) {
+         imprimir_pessoa(topo->p);
+         topo = topo -> proximo;
+     }
+     printf("\n---------- FIM PILHA ----------\n");
+}
 int main () {
 
     No *remover, *topo = NULL; //pilha
@@ -84,7 +96,7 @@ int main () {
                 printf("\nSem no a remover.\n");   
             break;  
         case 3:
-            /* code */
+            imprimir_pilha(topo);
             break;              
         
         default:
