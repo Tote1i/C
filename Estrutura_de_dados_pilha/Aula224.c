@@ -48,9 +48,20 @@ No* empilhar (No*topo) {
     return NULL;
 }
 
+No* desempilhar(No **topo) {
+    if (*topo != NULL) {
+         No *remover = *topo;
+         *topo = remover ->proximo;
+         return remover;
+    }
+    else
+        printf("\nPilha vazia\n");
+   return NULL;
+}        
+
 int main () {
 
-    No *topo = NULL; //pilha
+    No *remover, *topo = NULL; //pilha
     int opcao;
 
     do {
@@ -64,7 +75,13 @@ int main () {
             topo = empilhar(topo);
             break;
         case 2:
-            /* code */
+            remover = desempilhar (&topo);
+            if(remover){
+               printf("\nElemento removido com sucesso\n");
+               imprimir_pessoa(remover->p);
+            }
+            else
+                printf("\nSem no a remover.\n");   
             break;  
         case 3:
             /* code */
