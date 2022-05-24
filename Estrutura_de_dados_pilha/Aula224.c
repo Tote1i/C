@@ -47,7 +47,7 @@ No* empilhar (No*topo) {
         printf("\nErro ao alocar a memoria\n");
     return NULL;
 }
-
+//Função para a operação POP (desempilhar)
 No* desempilhar(No **topo) {
     if (*topo != NULL) {
          No *remover = *topo;
